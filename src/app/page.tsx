@@ -30,7 +30,7 @@ export default async function FilmList() {
       <ul className={styles.list}>
         {correctFilms.map((film) => (
           <li key={film.episode_id} className={styles.listItem}>
-            <a href={`/films/${film.episode_id}`} className={styles.link}>
+            <a href={`/film/${film.episode_id}`} className={styles.link}>
               <div className={styles.card}>
                 <Image src={icon} alt={'Star Wars Icon'} width={25} height={25}/>
                 {film.title}
