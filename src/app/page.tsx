@@ -32,7 +32,7 @@ export default async function FilmList() {
           <li key={film.episode_id} className={styles.listItem}>
             <a href={`/films/${film.episode_id}`} className={styles.link}>
               <div className={styles.card}>
-                <Image src={icon} alt={'Star Wars Icon'}/>
+                <Image src={icon} alt={'Star Wars Icon'} width={25} height={25}/>
                 {film.title}
               </div>
             </a>
