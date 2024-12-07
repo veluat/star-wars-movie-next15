@@ -11,9 +11,11 @@ export const revalidate = 3600;
 
 export default async function FilmList() {
   const response = await fetch('https://swapi.dev/api/films/');
+
   if (!response.ok) {
     return <div>Error loading films...</div>;
   }
+
   const data = await response.json();
   const films: Film[] = data.results;
 
