@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Тестовое задание: приложение на Next.js 15
 
-## Getting Started
+Это тестовое приложение разработано с использованием **App Router** (Next.js 15) и демонстрирует возможности статической генерации и инкрементальной перестройки. Приложение динамически отображает данные о фильмах из открытого API.
 
-First, run the development server:
+## Описание
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Приложение позволяет пользователям переходить с корневой страницы на любую из шаблонных страниц с описанием фильма.
+- Данные о фильмах извлекаются с открытого сервера **swapi.dev**, что является эффективным и простым способом продемонстрировать использование статической генерации и инкрементальной перестройки в Next.js.
+
+## Структура проекта
+
+- **Корневая страница**: Содержит список фильмов.
+- **Шаблонные страницы**: Каждая страница содержит информацию о конкретном фильме, включая название, описание, режиссера, продюсера и дату выпуска.
+
+## Установка и запуск проекта
+
+### Зависимости
+
+Для работы проекта требуются следующие зависимости:
+
+```json
+"dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "next": "15.0.4"
+},
+"devDependencies": {
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^8",
+    "eslint-config-next": "15.0.4"
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Шаги для запуска проекта
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Клонируйте репозиторий**:
+   ```bash
+   git clone <https://github.com/veluat/slmax-meow-react-testovoe-zadanie.git>
+   cd <имя_папки>
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Установите зависимости**:
+   ```bash
+   npm install
+   ```
 
-## Learn More
+3. **Запустите проект**:
+   ```bash
+   npm run dev
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+4. **Откройте браузер** и перейдите по адресу: `http://localhost:3000`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Стилизация
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Приложение имеет минимальную стилизацию, выполненную с использованием CSS-модулей, что позволяет легко управлять стилями и избегать конфликтов имен классов.
 
-## Deploy on Vercel
+## Предупреждение в консоли
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+[Next doc](https://nextjs.org/docs/messages/sync-dynamic-apis)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+> [!WARNING]
+>При работе с приложением на Next.js 15 вы можете столкнуться с предупреждением в консоли, связанным с использованием динамических API. Это предупреждение возникает, когда вы пытаетесь синхронно получить доступ к API, которые теперь являются асинхронными.
+
+### Как устранить предупреждение
+Для устранения этой проблемы вы можете использовать рекомендуемый метод, предлагаемый в документации Next.js. Запустите следующую команду в терминале:
+
+```bash
+npx @next/codemod@canary next-async-request-api . --force
+```
+Эта команда автоматически исправит многие случаи использования асинхронных API.
+
+## Заключение
+
+Это приложение на Next.js 15 демонстрирует возможности работы с данными, полученными из открытого API, а также показывает, как применять статическую генерацию и инкрементальную перестройку для создания динамически обновляемых страниц.
