@@ -11,26 +11,12 @@ interface Film {
 }
 
 export const revalidate = 60;
-export const dynamicParams = true;
 
-export async function generateStaticParams() {
-  const response = await fetch('https://swapi.dev/api/films/');
-
-  if (!response.ok) {
-    throw new Error('Failed to fetch films');
-  }
-
-  const data = await response.json();
-  return data.results.map((film: Film) => ({
-    id: String(film.episode_id),
-  }));
-}
-
-export default async function Page({ params }: { params: { id: string } }) {
+export default async function Film({ params }: { params: { id: string } }) {
   const response = await fetch(`https://swapi.dev/api/films/${params.id}`);
 
   if (!response.ok) {
-    throw new Error(`Film with id ${params.id} not found`);
+    throw new Error(`Error loading film...`);
   }
 
   const film: Film = await response.json();
