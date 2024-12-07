@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import styles from './Film.module.css';
+import styles from './film.module.css';
 
 interface Film {
   episode_id: number;

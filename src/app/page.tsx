@@ -1,6 +1,6 @@
-import styles from './page.module.css';
 import Image from 'next/image'
 import icon from './../../public/icon.png'
+import styles from './page.module.css';
 
 interface Film {
   episode_id: number;
