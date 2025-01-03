@@ -1,5 +1,6 @@
-import Link from 'next/link';
 import styles from './film.module.css';
+import Link from 'next/link';
+import { Metadata } from 'next';
 
 interface Film {
   episode_id: number;
@@ -10,16 +11,34 @@ interface Film {
   release_date: string;
 }
 
-export const revalidate = 60;
+type Params = Promise<{ id: string }>;
 
-export default async function Film({ params }: { params: { id: string } }) {
-  const response = await fetch(`https://swapi.dev/api/films/${params.id}`);
+export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
+  const { id } = await params;
+  const film = await getFilmData(id);
+  return {
+    title: film.title
+  };
+}
+
+async function getFilmData(id: string): Promise<Film> {
+  const response = await fetch(`https://swapi.info/api/films/${id}`, {
+    next: {
+      revalidate: 3600
+    }
+  });
 
   if (!response.ok) {
     throw new Error(`Error loading film...`);
   }
 
-  const film: Film = await response.json();
+  return response.json();
+}
+
+export default async function Film({ params }: { params: Params }) {
+  const { id } = await params;
+
+  const film = await getFilmData(id);
 
   return (
     <main className={styles.container}>
@@ -29,7 +48,7 @@ export default async function Film({ params }: { params: { id: string } }) {
         <p className={styles.text}><strong>Director:</strong> {film.director}</p>
         <p className={styles.text}><strong>Producer:</strong> {film.producer}</p>
         <p className={styles.text}><strong>Release Date:</strong> {film.release_date}</p>
-        <Link href="/" className={styles.link}>Home</Link>
+        <Link href={'/films'} className={styles.link}>Films List</Link>
       </div>
     </main>
   );
