@@ -1,10 +1,12 @@
 import React from 'react'
 import type { Metadata } from "next";
+import {CustomHeader} from '@/components/CustomHeader'
+import {CustomFooter} from '@/components/CustomFooter'
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Films - Testovoe",
-  description: "List of Star Wars films",
+  title: "Star Wars Films",
+  description: "Star Wars films",
 };
 
 export default function RootLayout({
@@ -15,7 +17,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+      <CustomHeader/>
+      <main className={'main'}>
         {children}
+      </main>
+      <CustomFooter/>
       </body>
     </html>
   );
