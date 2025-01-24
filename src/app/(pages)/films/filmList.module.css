@@ -1,65 +1,6 @@
-.title {
-    font-size: 36px;
-    color: #3a2c5a;
-    margin-bottom: 40px;
-    text-align: center;
-}
-
 .list {
     list-style-type: none;
     padding: 0;
     width: 100%;
     max-width: 600px;
-}
-
-.listItem {
-    margin-bottom: 20px;
-}
-
-.card {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    padding: 15px;
-    transition: background 0.3s;
-}
-
-.cardImg {
-    width: 40%;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.cardTitle {
-    width: 60%;
-}
-
-.card:hover {
-    background-color: #f0e4f1;
-}
-
-.link {
-    text-decoration: none;
-    color: #5c4a82;
-    font-size: 18px;
-    display: block;
-    width: 100%;
-}
-
-.link:hover {
-    color: #3a2c5a;
-}
-
-@media (max-width: 460px) {
-    .cardImg {
-        width: 10%;
-        justify-content: flex-start;
-    }
-
-    .cardTitle {
-        width: 90%;
-    }
 }

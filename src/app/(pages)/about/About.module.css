@@ -1,0 +1,9 @@
+.about {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 700px;
+    padding: 0 10px;
+    line-height: 1.7;
+}

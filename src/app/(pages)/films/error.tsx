@@ -1,7 +1,7 @@
 'use client';
 
-export default function ErrorWrapper({error}: {error: Error}) {
-  return (
-    <h1>Sorry! Something went wrong... {error.message}</h1>
-  )
+import { CustomTitle } from '@/components/custom-title/CustomTitle';
+
+export default function ErrorWrapper({ error }: { error: Error }) {
+  return <CustomTitle>Sorry! Something went wrong... {error.message}</CustomTitle>;
 }

@@ -1,6 +1,7 @@
-import styles from './film.module.css';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import { CustomTitle } from '@/components/custom-title/CustomTitle';
+import style from './film.module.css';
 
 interface Film {
   episode_id: number;
@@ -41,14 +42,14 @@ export default async function Film({ params }: { params: Params }) {
   const film = await getFilmData(id);
 
   return (
-    <main className={styles.container}>
-      <div className={styles.card}>
-        <h1 className={styles.title}>{film.title}</h1>
-        <p className={styles.text}><strong>Description:</strong> {film.opening_crawl}</p>
-        <p className={styles.text}><strong>Director:</strong> {film.director}</p>
-        <p className={styles.text}><strong>Producer:</strong> {film.producer}</p>
-        <p className={styles.text}><strong>Release Date:</strong> {film.release_date}</p>
-        <Link href={'/films'} className={styles.link}>Films List</Link>
+    <main className={style.container}>
+      <div className={style.card}>
+        <CustomTitle>{film.title}</CustomTitle>
+        <p className={style.text}><strong>Description:</strong> {film.opening_crawl}</p>
+        <p className={style.text}><strong>Director:</strong> {film.director}</p>
+        <p className={style.text}><strong>Producer:</strong> {film.producer}</p>
+        <p className={style.text}><strong>Release Date:</strong> {film.release_date}</p>
+        <Link href={'/films'} className={style.link}>Films List</Link>
       </div>
     </main>
   );

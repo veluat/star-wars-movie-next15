@@ -1,7 +1,7 @@
-import { CustomLoader } from '@/components/CustomLoader';
+import { CustomLoader } from '@/components/custom-loader/CustomLoader';
 
 export default function LoadingFilms() {
   return (
-    <CustomLoader/>
-  )
+    <CustomLoader />
+  );
 }

@@ -1,8 +1,8 @@
-import Image from 'next/image';
-import icon from '../../../../public/icon.png';
-import Link from 'next/link';
-import type { Metadata } from 'next';
-import styles from './filmList.module.css';
+import React from 'react';
+import { CustomTitle } from '@/components/custom-title/CustomTitle';
+import { Metadata } from 'next';
+import { FilmListItem } from '@/components/film-list-item/FilmListItem';
+import style from './filmList.module.css';
 
 export const metadata: Metadata = {
   title: 'Films | Next App',
@@ -33,24 +33,12 @@ export default async function FilmList() {
 
   return (
     <>
-      <h1 className={styles.title}>Star Wars Films</h1>
-      <ul className={styles.list}>
+      <CustomTitle>Star Wars Films</CustomTitle>
+      <ul className={style.list}>
         {films.map((film: Film) => (
-          <li key={film.episode_id} className={styles.listItem}>
-            <Link href={`/films/${film.episode_id}`} className={styles.link}>
-              <div className={styles.card}>
-                <div className={styles.cardImg}>
-                  <Image src={icon} alt={'Star Wars Icon'} width={25} height={25} />
-                </div>
-                <div className={styles.cardTitle}>
-                  {film.title}
-                </div>
-              </div>
-            </Link>
-          </li>
+          <FilmListItem key={film.episode_id} episodeId={film.episode_id} title={film.title} />
         ))}
       </ul>
-      ;
     </>
   );
 }
