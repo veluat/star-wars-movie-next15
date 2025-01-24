@@ -38,7 +38,7 @@
 
 1. **Клонируйте репозиторий**:
    ```bash
-   git clone https://github.com/veluat/star-wars-movie-app.git
+   git clone https://github.com/veluat/star-wars-movie-next15.git
    cd <имя_папки>
    ```
 
