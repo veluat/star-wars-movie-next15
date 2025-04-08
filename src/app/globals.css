@@ -56,7 +56,7 @@ body {
 .home {
     width: 100%;
     height: 100vh;
-    background-image: url('./../../public/star-wars.png');
+    background-image: url('./../../public/star-wars.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
